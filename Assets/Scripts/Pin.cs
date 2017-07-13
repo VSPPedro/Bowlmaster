@@ -16,6 +16,7 @@ public class Pin : MonoBehaviour {
 		
 	}
 
+	//TODO: not working. the angles obtained by eulerAngles are wrong.
 	public bool IsStanding () 
 	{
 		Vector3 rotationInEuler = transform.rotation.eulerAngles;
