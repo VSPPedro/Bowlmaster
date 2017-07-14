@@ -9,12 +9,14 @@ public class Ball : MonoBehaviour {
 
 	private Rigidbody rigidBody;
 	private AudioSource audioSource;
+	private Vector3 initialPosition;
 
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource> ();
 		rigidBody = GetComponent<Rigidbody> ();
 		rigidBody.useGravity = false;
+		initialPosition = transform.position;
 
 		Launch (launchSpeed);
 	}
@@ -30,5 +32,13 @@ public class Ball : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void Reset(){
+		transform.position = initialPosition;
+		rigidBody.velocity = Vector3.zero;
+		rigidBody.angularVelocity = Vector3.zero;
+		rigidBody.useGravity = false;
+		inPlay = false;
 	}
 }
