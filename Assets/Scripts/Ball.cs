@@ -17,8 +17,6 @@ public class Ball : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody> ();
 		rigidBody.useGravity = false;
 		initialPosition = transform.position;
-
-		Launch (launchSpeed);
 	}
 
 	public void Launch (Vector3 velocity)
