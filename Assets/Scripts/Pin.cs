@@ -21,10 +21,13 @@ public class Pin : MonoBehaviour {
 	{
 		Vector3 rotationInEuler = transform.rotation.eulerAngles;
 
-		float tiltInX = Mathf.Abs(rotationInEuler.x);
-		float tiltInZ = Mathf.Abs(rotationInEuler.z);
+		float tiltInX = Mathf.Abs(transform.rotation.eulerAngles.x);
+		float tiltInZ = Mathf.Abs(transform.rotation.eulerAngles.z);
+		float tiltInXRest = Mathf.Abs(transform.rotation.eulerAngles.x - 360);
+		float tiltInZRest = Mathf.Abs(transform.rotation.eulerAngles.z - 360);
 
-		if (tiltInX < standingThreshold && tiltInZ < standingThreshold) {
+		if ((tiltInX < standingThreshold && tiltInZ < standingThreshold) || (tiltInXRest < standingThreshold && tiltInZRest < standingThreshold)
+			|| (tiltInXRest < standingThreshold && tiltInZ < standingThreshold) || (tiltInX < standingThreshold && tiltInZRest < standingThreshold)) {
 			return true;
 		} else {
 			return false;		
