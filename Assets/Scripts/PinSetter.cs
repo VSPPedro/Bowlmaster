@@ -7,6 +7,8 @@ public class PinSetter : MonoBehaviour {
 
 	public int lastStandingCount = -1;
 	public Text standingDisplay;
+	public GameObject pinSet;
+	public float distanceToRaise = 45f;
 
 	private Ball ball;
 	private float lastChangeTime;
@@ -45,8 +47,10 @@ public class PinSetter : MonoBehaviour {
 	}
 
 	public void RenewPins() {
-		
+		GameObject newPinSet = Instantiate (pinSet, pinSet.transform.position, Quaternion.identity) as GameObject;
+		RaisePins ();
 	}
+
 
 	void CheckStanding () {
 		int currentStanding = CountStanding ();

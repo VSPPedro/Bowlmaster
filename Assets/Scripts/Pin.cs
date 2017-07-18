@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pin : MonoBehaviour {
 
 	public float standingThreshold = 3f;
-	public float distanceToRaise = 40f;
+	public float distanceToRaise = 50f;
 
 	private Rigidbody rigidBody;
 
