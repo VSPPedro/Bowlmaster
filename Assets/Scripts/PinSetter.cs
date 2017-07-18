@@ -8,7 +8,7 @@ public class PinSetter : MonoBehaviour {
 	public int lastStandingCount = -1;
 	public Text standingDisplay;
 	public GameObject pinSet;
-	public float distanceToRaise = 45f;
+	public float distanceToRaise = 50f;
 
 	private Ball ball;
 	private float lastChangeTime;
@@ -47,8 +47,8 @@ public class PinSetter : MonoBehaviour {
 	}
 
 	public void RenewPins() {
-		GameObject newPinSet = Instantiate (pinSet, pinSet.transform.position, Quaternion.identity) as GameObject;
-		RaisePins ();
+		Vector3 initialPosition = new Vector3 (pinSet.transform.position.x, distanceToRaise, pinSet.transform.position.z);
+		Instantiate (pinSet, initialPosition, Quaternion.identity);
 	}
 
 
@@ -104,7 +104,7 @@ public class PinSetter : MonoBehaviour {
 		bool notABall = !collider.GetComponent<Ball> ();
 
 		if (notABall) {
-			GameObject thingleft = collider.transform.parent.gameObject;
+			GameObject thingleft = collider.transform.gameObject;
 			if (thingleft.GetComponent<Pin> ()) {
 				Destroy (thingleft);
 			}
