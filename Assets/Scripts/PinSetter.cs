@@ -4,18 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PinSetter : MonoBehaviour {
-
-	public int lastStandingCount = -1;
-	public float distanceToRaise = 50f;
 	public Text standingDisplay;
 	public GameObject pinSet;
 
-	private Ball ball;
+	private bool ballOutOfPlay = false;
+	private float distanceToRaise = 50f;
 	private float lastChangeTime;
+	private int lastStandingCount = -1;
 	private int lastSettledCount = 10;
-	private bool ballEnteredBox = false;
-	private ActionMaster actionMaster = new ActionMaster ();
+	private Ball ball;
 	private Animator animator;
+	private ActionMaster actionMaster = new ActionMaster ();
 
 	// Use this for initialization
 	void Start () {
@@ -27,9 +26,14 @@ public class PinSetter : MonoBehaviour {
 	void Update () {
 		standingDisplay.text = CountStanding ().ToString ();
 
-		if (ballEnteredBox) {
+		if (ballOutOfPlay) {
 			UpdateStandingCountAndSettle ();
+			standingDisplay.color = Color.red;
 		}
+	}
+
+	public void SetBallOutOfPlay () {
+		ballOutOfPlay = true;
 	}
 
 	public void RaisePins() {
@@ -94,7 +98,7 @@ public class PinSetter : MonoBehaviour {
 
 		ball.Reset ();
 		lastStandingCount = -1;
-		ballEnteredBox = false;
+		ballOutOfPlay = false;
 		standingDisplay.color = Color.green;
 	}
 
@@ -111,14 +115,5 @@ public class PinSetter : MonoBehaviour {
 		}
 
 		return standing;
-	}
-
-	void OnTriggerEnter (Collider collider) {
-		GameObject thingHit = collider.gameObject;
-
-		if (thingHit.GetComponent<Ball> ()) {
-			ballEnteredBox = true;
-			standingDisplay.color = Color.green;
-		}
 	}
 }

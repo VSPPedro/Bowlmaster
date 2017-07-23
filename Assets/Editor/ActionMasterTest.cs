@@ -116,7 +116,7 @@ public class ActionMasterTest {
 	}
 
 	[Test]
-	public void T12Dondii10thFrameTurkey () {
+	public void T12Dondi10thFrameTurkey () {
 		int[] rolls = { 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1,};
 
 		foreach (int roll in rolls) {
@@ -126,5 +126,11 @@ public class ActionMasterTest {
 		Assert.AreEqual (reset, actionMaster.Bowl (10));
 		Assert.AreEqual (reset, actionMaster.Bowl (10));
 		Assert.AreEqual (endGame, actionMaster.Bowl (10));
+	}
+
+	[Test]
+	public void T13ZeroOneGivesEndTurn () {
+		actionMaster.Bowl (0);
+		Assert.AreEqual (endTurn, actionMaster.Bowl (1));
 	}
 }
