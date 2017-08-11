@@ -34,6 +34,7 @@ public class Ball : MonoBehaviour {
 
 	public void Reset(){
 		transform.position = initialPosition;
+		transform.rotation = Quaternion.Euler (0, 0, 0);
 		rigidBody.velocity = Vector3.zero;
 		rigidBody.angularVelocity = Vector3.zero;
 		rigidBody.useGravity = false;
