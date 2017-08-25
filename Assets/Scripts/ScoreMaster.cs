@@ -25,11 +25,17 @@ public class ScoreMaster : MonoBehaviour {
 
 		foreach (int roll in rolls) {
 
-			if (count % 2 != 0) {
+			if (count % 2 != 0 && roll != 10) {
 				frameScore = roll;
 			} else {
-				frameScore += roll;
-				frameList.Add (frameScore);
+
+				//Strike
+				if (roll == 10) {
+					count--;
+				} else {
+					frameScore += roll;
+					frameList.Add (frameScore);
+				}
 			}
 
 			Debug.Log ("roll: " + roll);
