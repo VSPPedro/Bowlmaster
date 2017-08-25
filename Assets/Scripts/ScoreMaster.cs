@@ -17,11 +17,25 @@ public class ScoreMaster : MonoBehaviour {
 		return cumulativeScores;
 	}
 
-	//Return a list of individual frame scroes, NOT cumulative.
+	//Return a list of individual frame scores, NOT cumulative.
 	public static List<int> ScoreFrames(List<int> rolls){
 		List<int> frameList = new List<int> ();
+		int count = 1;
+		int frameScore = 0;
 
+		foreach (int roll in rolls) {
 
+			if (count % 2 != 0) {
+				frameScore = roll;
+			} else {
+				frameScore += roll;
+				frameList.Add (frameScore);
+			}
+
+			Debug.Log ("roll: " + roll);
+
+			count++;
+		}
 
 		return frameList;
 	}
