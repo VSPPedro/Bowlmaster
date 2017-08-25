@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//using System;
+//using System.Collections.Generic;
 //using NUnit.Framework;
 //using UnityEngine;
 //using System.Linq;
 //
 //[TestFixture]
-//public class OurScoreDisplayTest {
+//public class ScoreMasterTest {
 //	
 //	[Test]
 //	public void T00PassingTest () {
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 //	}
 //
 //	[Test]
-//	public void T01Bowl1 () {
-//		int[] rolls = {1};
-//		string rollsString = "1";
-//		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
+//	public void T01Bowl23 () {
+//		int[] rolls = {2, 3};
+//		int[] frames = {5};
+//		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
 //	}
 //
 //	[Test]
@@ -92,6 +92,6 @@ using System.Collections.Generic;
 //		int[] rolls = { 10, 10, 10, 10, 9,0, 10, 10, 10, 10, 10,9,1};
 //		string rollsString = "X X X X 9-X X X X X91";
 //		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls(rolls.ToList()));
-//	}
-//
+////	}
+////
 //}
