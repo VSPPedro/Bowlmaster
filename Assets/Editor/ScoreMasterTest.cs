@@ -25,13 +25,13 @@ public class ScoreMasterTest {
 		int[] frames = { 5};
 		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
 	}
-//
-//	[Test]
-//	public void T03Bowl2345 () {
-//		int[] rolls = {2,3,4,5};
-//		int[] frames = { 5,  9};
-//		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
-//	}
+
+	[Test]
+	public void T03Bowl2345 () {
+		int[] rolls = {2,3,4,5};
+		int[] frames = { 5,  9};
+		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
+	}
 //
 //	[Test]
 //	public void T04Bowl23456 () {
