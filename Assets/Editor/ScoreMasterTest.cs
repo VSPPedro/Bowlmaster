@@ -137,13 +137,13 @@ public class ScoreMasterTest {
 		int[] totalS = {30, 60, 90,120,150,180,210,240,270,      300};
 		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
 	}
-//
-//	[Test]
-//	public void T19TestImmediateStrikeBonus() {
-//		int[] rolls = {5,5, 3};
-//		int[] frames = {13};
-//		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
-//	}
+
+	[Test]
+	public void T19TestImmediateStrikeBonus() {
+		int[] rolls = {5,5, 3};
+		int[] frames = {13};
+		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
+	}
 //
 //	[Test]
 //	public void T20SpareInLastFrame () {
