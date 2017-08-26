@@ -40,6 +40,9 @@ public class ScoreMaster : MonoBehaviour {
 					strikeCount--;
 				}
 			} else {
+
+				frameScore += roll;
+
 				//Strike
 				if (roll == strikePoints) {
 					count--;
@@ -49,23 +52,28 @@ public class ScoreMaster : MonoBehaviour {
 
 					if (strikeCount == 3) {
 						frameList.Add (strikePoints * strikeCount);
+						frameScore = 0;
 						count++;
 						strikeCount--;
-					} else 
+					}
 
 					strike = true;
-				} else if (frameScore + roll == strikePoints ) {
+				} else if (frameScore == strikePoints ) {
 					spare = true;
 				} else {
-
-					frameScore += roll;
-
+					
 					if (strike) {
 						strike = false;
 						frameList.Add (frameScore + strikePoints);
+						if (frameList.Count != strikePoints) {
+							frameList.Add (frameScore);
+							frameScore = 0;
+						}
+					} else {
+						frameList.Add (frameScore);
+						frameScore = 0;
 					}
 
-					frameList.Add (frameScore);
 				}
 			}
 
