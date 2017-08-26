@@ -23,6 +23,7 @@ public class ScoreMaster : MonoBehaviour {
 		int count = 1;
 		int frameScore = 0;
 		int strikePoints = 10;
+		int strikeCount = 1;
 		bool strike = false;
 		bool spare = false;
 
@@ -33,12 +34,20 @@ public class ScoreMaster : MonoBehaviour {
 
 				if (spare) {
 					spare = false;
-					frameList.Add (frameScore + strikePoints);
+					frameList.Add (frameScore + strikePoints * strikeCount);
+				} else if (strikeCount == 2) {
+					frameList.Add (frameScore + strikePoints * strikeCount);
+					strikeCount--;
 				}
 			} else {
 				//Strike
 				if (roll == 10) {
 					count--;
+
+					if (strike) {
+						strikeCount = 2;
+					}
+
 					strike = true;
 				} else if (frameScore + roll == strikePoints ) {
 					spare = true;
