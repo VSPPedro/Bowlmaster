@@ -95,13 +95,13 @@ public class ScoreMasterTest {
 		int[] frames = {17,   7};
 		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
 	}
-//
-//	[Test]
-//	public void T13StrikeBonus3 () {
-//		int[] rolls = { 1,2, 3,4, 5,4, 3,2, 10, 1,3, 3,4};
-//		int[] frames = {  3,   7,   9,   5, 14,   4,   7};
-//		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
-//	}
+
+	[Test]
+	public void T13StrikeBonus3 () {
+		int[] rolls = { 1,2, 3,4, 5,4, 3,2, 10, 1,3, 3,4};
+		int[] frames = {  3,   7,   9,   5, 14,   4,   7};
+		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
+	}
 //
 //	[Test]
 //	public void T14MultiStrikes () {
