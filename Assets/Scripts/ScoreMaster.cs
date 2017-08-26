@@ -41,12 +41,17 @@ public class ScoreMaster : MonoBehaviour {
 				}
 			} else {
 				//Strike
-				if (roll == 10) {
+				if (roll == strikePoints) {
 					count--;
-
 					if (strike) {
-						strikeCount = 2;
+						strikeCount ++;
 					}
+
+					if (strikeCount == 3) {
+						frameList.Add (strikePoints * strikeCount);
+						count++;
+						strikeCount--;
+					} else 
 
 					strike = true;
 				} else if (frameScore + roll == strikePoints ) {
@@ -66,7 +71,7 @@ public class ScoreMaster : MonoBehaviour {
 
 			count++;
 		}
-
+			
 		return frameList;
 	}
 }
