@@ -123,13 +123,13 @@ public class ScoreMasterTest {
 		int[] totalS = {  0,   0,   0,   0,   0,   0,   0,   0,   0,   0};
 		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
 	}
-//
-//	[Test]
-//	public void T17TestAllOnes () {
-//		int[] rolls = { 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
-//		int[] totalS = {  2,   4,   6,   8,  10,  12,  14,  16,  18,  20};
-//		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
-//	}
+
+	[Test]
+	public void T17TestAllOnes () {
+		int[] rolls = { 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
+		int[] totalS = {  2,   4,   6,   8,  10,  12,  14,  16,  18,  20};
+		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
+	}
 //
 //	[Test]
 //	public void T18TestAllStrikes () {
