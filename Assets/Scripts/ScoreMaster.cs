@@ -32,13 +32,13 @@ public class ScoreMaster : MonoBehaviour {
 				//Strike
 				if (roll == 10) {
 					count--;
+				} else if (frameScore + roll == 10 ) {
+					count--;
 				} else {
 					frameScore += roll;
 					frameList.Add (frameScore);
 				}
 			}
-
-			Debug.Log ("roll: " + roll);
 
 			count++;
 		}
