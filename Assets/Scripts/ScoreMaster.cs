@@ -22,26 +22,35 @@ public class ScoreMaster : MonoBehaviour {
 		List<int> frameList = new List<int> ();
 		int count = 1;
 		int frameScore = 0;
+		int strikePoints = 10;
 		bool strike = false;
 		bool spare = false;
 
 		foreach (int roll in rolls) {
 
-			if (count % 2 != 0 && roll != 10) {
+			if (count % 2 != 0 && roll != strikePoints) {
 				frameScore = roll;
 
 				if (spare) {
 					spare = false;
-					frameList.Add (frameScore + 10);
+					frameList.Add (frameScore + strikePoints);
 				}
 			} else {
 				//Strike
 				if (roll == 10) {
 					count--;
-				} else if (frameScore + roll == 10 ) {
+					strike = true;
+				} else if (frameScore + roll == strikePoints ) {
 					spare = true;
 				} else {
+
 					frameScore += roll;
+
+					if (strike) {
+						strike = false;
+						frameList.Add (frameScore + strikePoints);
+					}
+
 					frameList.Add (frameScore);
 				}
 			}
