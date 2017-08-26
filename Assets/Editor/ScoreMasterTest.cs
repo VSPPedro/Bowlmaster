@@ -116,13 +116,13 @@ public class ScoreMasterTest {
 		int[] frames = {22, 15,   5, 18,   8};
 		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
 	}
-//
-//	[Test]
-//	public void T16TestGutterGame () {
-//		int[] rolls = { 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0};
-//		int[] totalS = {  0,   0,   0,   0,   0,   0,   0,   0,   0,   0};
-//		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
-//	}
+
+	[Test]
+	public void T16TestGutterGame () {
+		int[] rolls = { 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0};
+		int[] totalS = {  0,   0,   0,   0,   0,   0,   0,   0,   0,   0};
+		Assert.AreEqual (totalS.ToList(), ScoreMaster.ScoreCumulative (rolls.ToList()));
+	}
 //
 //	[Test]
 //	public void T17TestAllOnes () {
