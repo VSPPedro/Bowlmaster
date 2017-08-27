@@ -19,67 +19,26 @@ public class ScoreMaster : MonoBehaviour {
 
 	//Return a list of individual frame scores, NOT cumulative.
 	public static List<int> ScoreFrames(List<int> rolls){
-		List<int> frameList = new List<int> ();
-		int count = 1;
-		int frameScore = 0;
-		int strikePoints = 10;
-		int strikeCount = 1;
-		bool strike = false;
-		bool spare = false;
+		List<int> frames = new List<int> ();
 
-		foreach (int roll in rolls) {
+		for (int i = 0; i < rolls.Count; i+= 2) {
 
-			if (count % 2 != 0 && roll != strikePoints) {
-				frameScore = roll;
+			if (frames.Count == 10) { break; }
 
-				if (spare) {
-					spare = false;
-					frameList.Add (frameScore + strikePoints * strikeCount);
-				} else if (strikeCount == 2) {
-					frameList.Add (frameScore + strikePoints * strikeCount);
-					strikeCount--;
-				}
-			} else {
-
-				frameScore += roll;
-
-				//Strike
-				if (roll == strikePoints) {
-					count--;
-					if (strike) {
-						strikeCount ++;
-					}
-
-					if (strikeCount == 3) {
-						frameList.Add (strikePoints * strikeCount);
-						frameScore = 0;
-						count++;
-						strikeCount--;
-					}
-
-					strike = true;
-				} else if (frameScore == strikePoints ) {
-					spare = true;
-				} else {
-					
-					if (strike) {
-						strike = false;
-						frameList.Add (frameScore + strikePoints);
-						if (frameList.Count != strikePoints) {
-							frameList.Add (frameScore);
-							frameScore = 0;
-						}
-					} else {
-						frameList.Add (frameScore);
-						frameScore = 0;
-					}
-
-				}
+			if (rolls [i - 1] + rolls [i] < 10) {
+				frames.Add (rolls [i - 1] + rolls [i]);
 			}
 
-			count++;
+			if (rolls.Count - i <= 1) { break; }
+
+			if (rolls [i - 1] == 10) {
+				frames.Add (10 +  rolls [i] + rolls [i + 1]);
+			} else if (rolls [i - 1] + rolls [i] == 10) {
+				frames.Add (10 +  rolls [i + 1]);
+			}
+
 		}
-			
-		return frameList;
+
+		return frames;
 	}
 }
