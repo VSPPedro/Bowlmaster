@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 
 	private PinSetter pinSetter;
 	private Ball ball;
+	private ScoreDisplay scoreDisplay;
 
 	// Use this for initialization
 	void Start () {
@@ -17,9 +18,10 @@ public class GameManager : MonoBehaviour {
 	
 	public void Bowl(int pinFall) {
 		bowls.Add (pinFall);
-
-		ActionMaster.Action nextAction = ActionMaster.NextAction (bowls);
-		pinSetter.PerformAction (nextAction);
 		ball.Reset ();
+
+		pinSetter.PerformAction (ActionMaster.NextAction (bowls));
+
+		scoreDisplay.FillRollCard (bowls);
 	}
 }
